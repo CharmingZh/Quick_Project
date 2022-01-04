@@ -1,6 +1,22 @@
-# C_Sharp_Course
- A short-term project due in 2 days
+# Quick_Project
 
-## Project done
- The final exam has been finished. Just waiting for the money and the mark.  
- I will upload the answer to Github with fusion process about the employer.
+> Nothing needs to explain.
+
+- [x] C\# project
+- [ ] Mobile and WLAN technology
+- [ ] \#todo
+
+<details>
+ <summary> C sharp project </summary>
+
+1. Did some GUI and algorithm using C sharp programming language.
+2. Documents have been uploaded.
+
+</details>
+
+<details>
+ <summary> Mobile and WLAN technology  </summary>
+
+1. Documents have been uploaded.
+
+</details>
