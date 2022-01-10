@@ -1,29 +1,60 @@
-#### ⚠️Fading Explain. 
+#### ✅Fading Explain. 
 
 > ... Describe their impacts on the wireless channel, with the help of a sketch of BER vs Eb/No curves.
 
 - Explain **Flat** fading and **frequency selective** fading. 
 
-   > **Flat Fading**:
-   >
-   > **Frequency Selective**:
+   > <table border="0">
+   > <tr>
+   >  <td width="50%">
+   >    <p><b>Flat Fading: Flat fading is that type of fading in which all frequency components of the received signal fluctuate in the same proportions simultaneously. Multipath fading can be characterized by a coherence bandwidth, BC , which is the range of frequencies over which the channel response is relatively constant. Therefore, if the coherence bandwidth is much, much greater than the signal bandwidth, then flat fading occurs. </b></p>
+   >    <p><b>Frequency Selective : frequency selective fading occurs when flat fading is not present. It affects unequally the different spectral components of a radio signal. If attenuation occurs over only a portion of the bandwidth of the signal the fading is considered to be frequency selective. </b></p>
+   >  </td>
+   >  <td width="50%">
+   >       <img height="700" src="/Users/charminzh/Library/Application%20Support/typora-user-images/image-20220111002443059.png" /> 
+   >  </td>
+   > </tr>
+   > </table>
 
 - 🤔️Explain the **Rayleigh** and **Rician** fading, respectively. 
 
-   > **Rayleigh fading** occurs when there are multiple indirect paths between the transmitter and the receiver and no distinct dominant path, such as an LOS path. The Rayleigh model characterizes outdoor settings. 
+   > <table border="0">
+   > <tr>
+   >  <td width="50%">
+   >    <p><b>1. Rayleigh fading occurs when there are multiple indirect paths between the transmitter and the receiver and no distinct dominant path, such as an LOS path. The Rayleigh model characterizes outdoor settings.  </b></p>
+   >    <p><b>2. Rician fading best characterizes a situation where there is a direct LOS path in addition to a number of indirect multipath signals. The Rician model is often applicable in an indoor environment whereas. The Rician model also becomes more applicable in smaller cells or in more open outdoor environments.</b></p>
+   >  </td>
+   >  <td width="50%">
+   >       <img height="500" src="/Users/charminzh/Library/Application%20Support/typora-user-images/image-20220111002443059.png" /> 
+   >  </td>
+   > </tr>
+   > </table>
    >
-   > **Rician fading** best characterizes a situation where there is a direct LOS path in addition to a number of indirect multipath signals. The Rician model is often applicable in an indoor environment whereas. The Rician model also becomes more applicable in smaller cells or in more open outdoor environments.
-   >
-   >  The channels can be characterized by a parameter K, defined as follows:
+   > The channels can be characterized by a parameter K, defined as follows:
    > $$
    > K = \frac{power\ in\ the\ dominant\ path}{power\ in\ the\ scattered\ paths}
    > $$
-   > 
+   >The figure shows that with a reasonably strong signal, relative to noise, a Rician channels with larger values of K exhibit provides fairly good performance.The Rayleigh channel provides relatively poor performance; this is likely to be seen for flat fading and for slow fading; in these cases, error compensation mechanisms become more desirable. 
 
-#### ❌With the help of diagrams, explain how the ... works and the processing gain.
+#### ✅With the help of diagrams, explain how the ... works and the processing gain.
 
 - Direct Sequence Spread Spectrum (**DSSS**)：
+
+   > For direct sequence spread spectrum (DSSS), each bit in the original signal is represented by multiple bits in the transmitted signal, using a spreading code. The spreading code spreads the signal across a wider frequency band in direct proportion to the number of bits used. Therefore, a 10-bit spreading code spreads the signal across a frequency band that is approximately 10 times greater than a 1-bit spreading code.
+   > Because the bits in the PN sequence are much smaller, they are sometimes called chips; the sequence is then called the chip sequence.
+   >
+   > <img src="https://tva1.sinaimg.cn/large/008i3skNly1gy91x624xfj31280l0q65.jpg" alt="image-20220111004030461" style="zoom:67%;" />
+
 - Frequency Hopping Spread Spectrum (**FHSS**)：
+
+   > With frequency hopping spread spectrum (FHSS), the signal is broadcast over a seemingly random series of radio frequencies, hopping from frequency to frequency at fixed intervals. A receiver, hopping between frequencies in synchronization with the transmitter, picks up the message. 
+   > A number of channels, C, are allocated for the FH signal. The spacing between carrier frequencies and hence the width of each channel usually corresponds to the bandwidth of the input signal. The transmitter operates in one channel at a time for a fixed interval; During that interval, some number of bits is transmitted using some encoding scheme. A spreading code dictates the sequence of channels used. Both the transmitter and the receiver use the same code to tune into a sequence of channels in synchronization.
+   >
+   > For transmission, binary data are fed into a modulator using some digital-to-analog encoding scheme. The resulting signal is centered on some base frequency. A pseudonoise, or pseudorandom number, source serves as an index into a table of frequencies; this is the spreading code referred to previously. At each successive interval, a new carrier frequency is selected. This frequency is then modulated by the signal produced from the initial modulator to produce a new signal with the same shape but now centered on the selected carrier frequency.
+   >
+   > On reception, the spread spectrum signal is demodulated using the same sequence of PN-derived frequencies and then demodulated to produce the output data.
+   >
+   > <img src="/Users/charminzh/Library/Application%20Support/typora-user-images/image-20220111004914681.png" alt="image-20220111004914681" style="zoom: 50%;" />
 
 #### ✅Describe the operation of ... , with the help of a diagram if necessary.
 
@@ -114,9 +145,19 @@
 
    > In order to avoid this problem, the IEEE 802.11 protocol allows a station to use a short Request to Send (RTS) control frame and a short Clear to Send (CTS) control frame to reserve access to the channel. When a sender wants to send a DATA frame, it can first send an RTS frame to the AP, indicating the total time required to transmit the DATA frame and the acknowledgment (ACK) frame. When the AP receives the RTS frame, it responds by broadcasting a CTS frame. This CTS frame serves two purposes: It gives the sender explicit permission to send and also instructs the other stations not to send for the reserved duration.
 
-#### Physical layer in the IEEE802. 11 standard.
+#### ✅Physical layer in the IEEE802. 11 standard.
 
 - Describe the Physical layer specification in the IEEE802. 11a, 11b and 11g standards, respectively.
+
+   > | Standard                    | 802.11a    | 802.11b    | 802.11g    |
+   > | --------------------------- | ---------- | ---------- | ---------- |
+   > | Year introduced             | 1999       | 1999       | 2003       |
+   > | Maximum data transfer speed | 54 Mbps    | 11 Mbps    | 54 Mbps    |
+   > | Frequency band              | 5 GHz      | 2.4 GHz    | 2.4 GHz    |
+   > | Channel bandwidth           | 20 MHz     | 20 MHz     | 20 MHz     |
+   > | Highest order modulation    | 64 QAM     | 11 CCK     | 64 QAM     |
+   > | Spectrum usage              | OFDM       | DSSS       | DSSS, OFDM |
+   > | Antenna configuration       | 1 * 1 SISO | 1 * 1 SISO | 1 * 1 SISO |
 
 - Describe three options of the Physical layer in the IEEE802. 11 standard.
 
@@ -145,16 +186,63 @@
    > The 802.11 standard provides power-management capabilities that allow 802.11 nodes to minimize the amount of time that their sense, transmit, and receive functions and other circuitry need to be “on.” 802.11 power management operates as follows. A node is able to explicitly alternate between sleep and wake states. A node indicates to the access point that it will be going to sleep by setting the power-management bit in the header of an 802.11 frame to 1. A timer in the node is then set to wake up the node just before the AP is scheduled to send its beacon frame. Since the AP knows from the set power-transmission bit that the node is going to sleep, the AP knows that it should not send any frames to that node, and will buffer any frames destined for the sleeping host for later transmission.
    > A node will wake up just before the AP sends a beacon frame, and quickly enter the fully active state. The beacon frames sent out by the AP contain a list of nodes whose frames have been buffered at the AP. If there are no buffered frames for the node, it can go back to sleep. Otherwise, the node can explicitly request that the buffered frames be sent by sending a polling message to the AP. A node that has no frames to send or receive can be asleep 99% of the time, resulting in a significant energy savings.
 
-#### Specific features in IEEE 802.11
+#### 🤔️Specific features in IEEE 802.11
 
 - IEEE 802.11 **a / c**:
-   - Describe the main features in the IEEE802.11 a/c proposal.
+   - ✅Describe the main features in the IEEE802.11 a/c proposal.
+   
+      > The new standard achieves much higher data rates than 802.11n by means of enhancements in three areas:
+      >
+      > - Bandwidth: The maximum bandwidth of 802.11n is 40 MHz; the maximum bandwidth of 802.11ac is 160 MHz.
+      > - Signal encoding: 802.11n can use 64 QAM with OFDM, and 802.11ac can use 256 QAM with OFDM. Thus, more bits can be encoded per symbol. Both schemes use forward error correction with a code rate of 5/6.
+      > - MIMO: With 802.11n, there can be a maximum of 4 channel input and 4 channel output antennas. 802.11ac increases this to 8 * 8.
+   
 - IEEE 802.11 / **i**:
-   - Describe the improvements on security being made in IEEE802.11i.
-- Explain how the WLAN security is improved in WPA2.
-- IEEE 802.11 / **n**:
-   - Describe the main improvements being made in IEEE802.11n standards.
-   - Describe the main features of three operation modes in IEEE802.11n standards.
+   - ✅Describe the improvements on security being made in IEEE802.11i.
+   
+      > Main areas of improvement in IEEE 802.11i are -
+      >
+      > - Authentication：Before the AS authenticates a supplicant using an authentication protocol, the authenticator only passes control or authentication messages between the supplicant and the AS; the 802.1X control channel is unblocked, but the 802.11 data channel is blocked. Once a supplicant is authenticated and keys are provided, the authenticator can forward data from the supplicant, subject to predefined access control limitations for the supplicant to the network. Under these circumstances, the data channel is unblocked.
+      > - Key management: During the key management phase, a variety of cryptographic keys are generated and distributed to STAs. There are two types of keys: pairwise keys used for communication between an STA and an AP and group keys used for multicast communication.
+      > - Data transfer : IEEE 802.11i defines two schemes for protecting data transmitted in 802.11 MPDUs: the Temporal Key Integrity Protocol (TKIP) and the Counter Mode-CBC MAC Protocol (CCMP).
+   
+   - 🤔️Explain how the WLAN security is improved in WPA2.
+   
+      > Authentication & Integrity：
+      >
+      > - Key management and message integrity is handled by a single component built around AES
+      >
+      > - Using a CBC-MAC (Cipher Block Chaining Message Authentication Code)
+      >
+      > Encryption
+      >
+      > - Uses CTR (Counter mode) AES (128 bit)
+      > - Computationally expensive and adds a significant amount of overhead
+      > - Use CCMP (Counter Mode with Cipher Block Chaining Message Authentication Code Protocol) instead of TKIP
+   
+- ✅IEEE 802.11 / **n**:
+   - ✅Describe the main improvements being made in IEEE802.11n standards.
+   
+      > IEEE 802.11n embodies changes in three general areas: 
+      >
+      > - use of MIMO：MIMO stands for multiple inputs and multiple outputs, which means a device with multiple transmitters emitting signals and a device with multiple receivers receiving the signals. A MIMO system is often represented as NxM where N is the number of inputs and M is the number of outputs.
+      > - enhancements in radio transmission：The most significant of these techniques, known as channel bonding, combines two 20 MHz channels to create a 40 MHz channel. Using OFDM, this allows for a little more than twice as many subchannels, more than doubling the transmission rate.The effect is that 802.11n achieves slightly more than double the rate with 40 MHz channels.
+      > - MAC enhancements. The most significant change is to aggregate multiple MAC frames into a single block for transmission. With 802.11n the receiver can send a single block acknowledgment. The physical header associated with transmission is sent only at the beginning of the aggregated frame, rather than one physical header per individual frame. Frame aggregation can result in significantly improved efficient use of the transmission capacity. Each frame no longer requires its own ACK and the associated IFS times.
+      >
+      > The goal of this effort was to not just increase the bit rate of the transmitting antennas but to increase the effective throughput of the network. Increasing effective throughput involves looking at the signal encoding scheme, also at the antenna architecture and the MAC frame structure. IEEE 802.11 n standard is defined to operate in both the 2.4 GHz and the 5 GHz bands and can therefore be made upwardly compatible with either 802.11a or 802.11b/g.
+   
+   - ✅Describe the main features of three operation modes in IEEE802.11n standards.
+   
+      > There are three basic 802.11n operating modes
+      >
+      > – 802.11na
+      >
+      > – 802.11ng
+      >
+      > – Greenfield
+      >
+      > - When configured as 802.11na or 802.11ng, an AP will accept connections from a and g client respectively;
+      > - Greenfield mode is a ‘pure’ n mode and will not accept connections from legacy clients;
 
 ---
 
@@ -209,6 +297,8 @@
 - Describe the general functionality of HSUPA.
 
 #### Describe the functionality of the Rake receiver in CDMA systems.
+
+> page 269
 
 #### UMTS
 
