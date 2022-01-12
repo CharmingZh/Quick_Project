@@ -360,9 +360,14 @@ When the mobile station is turned on by the user, briefly describe the general s
 > - RSS with hysteresis : Handoff occurs only if the new base station is sufficiently stronger than the current one. In this case, handoff occurs at L3 . This scheme prevents the ping-pong effect, because once handoff occurs, the effect of the margin H is reversed. The term hysteresis refers to a phenomenon known as relay hysteresis and can be appreciated with the aid of Figure. We can think of the handoff mechanism as having two states. While the mobile unit is assigned to BS A, the mechanism will generate a handoff when the relative signal strength reaches or exceeds the H. Once the mobile unit is assigned to B, it remains so until the relative signal strength falls below –H, at which point it is handed back to A. The only disadvantage of this scheme is that the first handoff may still be unnecessary if BS A still has sufficient signal strength.
 > - RSS with hysteresis and threshold : Handoff occurs only if (1) the current signal level drops below a threshold, and (2) the target base station is stronger than the current one by a hysteresis margin H. For example, handoff occurs at L 3 if the threshold is either Th 1 or Th 2 and at L 4 if the threshold is at Th3 .
 
-#### Explain why the concept of conventional frequency reuse and planning found in FDMA and TDMA systems is not used for a CDMA system.
+#### ✅Explain why the concept of conventional frequency reuse and planning found in FDMA and TDMA systems is not used for a CDMA system.
 
-> 
+> Different from FDMA and TDMA systems. A single CDMA carrier requires removing 41 contiguous AMPS channels. All users operate on the same frequency carrier at the same time, resulting in everyone causing co-channel interference. This problem is reduced by applying:
+>
+> - synchronized orthogonal codes on the downlink;
+> - Combination of convolutional coding, spreading and orthogonal modulation on uplink;
+>
+> CDMA completely eliminates the concept of conventional frequency reuse.
 
 #### ✅What is the carrier to interefence ratio and how can it be calculated?
 
@@ -385,10 +390,26 @@ When the mobile station is turned on by the user, briefly describe the general s
 > $$
 > .
 
-#### Given the following number of cells per cluster, find the respective cochannel reuse ratio.
+#### ✅Given the following number of cells per cluster, find the respective cochannel reuse ratio.
 
-> Number of cells per cluster = 3, 4, 7, 12.
->
+- Number of cells per cluster = 3, 4, 7, 12.
+
+   > Given the following number of cells per cluster, find the respective cochannel reuse ratio.
+   > $$
+   > N = i^2+ij+j^2
+   > $$
+   > the co-channel reuse ratio, is related to the size of a cluster. For a hexagonal geometry :
+   > $$
+   > Cochannel\ Reuse\ Ratio=\frac{D}{R}=\sqrt{3N}
+   > $$
+   > Given the following number of cells per cluster, the **cochannel reuse ratio** is :
+   > $$
+   > Number\ of\ cells\ per\ cluster\ = 3\to Q=\sqrt{3\times3} = 3\\
+   > Number\ of\ cells\ per\ cluster\ = 4\to Q=\sqrt{3\times4} = 2\sqrt2 \approx 3.46\\
+   > Number\ of\ cells\ per\ cluster\ = 7\to Q=\sqrt{3\times7} = \sqrt{21} \approx 4.58\\
+   > Number\ of\ cells\ per\ cluster\ = 12\to Q=\sqrt{3\times12} = 6\\
+   > $$
+   > 
 
 #### ✅HSUPA
 
@@ -718,11 +739,26 @@ When the mobile station is turned on by the user, briefly describe the general s
 
 i) Calculate the offered traffic in the cell.
 
+> The offered traffic intensity is 
+> $$
+> T = \frac{360 \times 120}{3600} = 12\ Erlang
+> $$
+
 ii) How many channels are needed in this cell if an omnidirectional antenna is used?
+
+> Looking at Erlang table for a GOS of 3%, it is found that **18 channels** are needed for an offered traffic of 12 Erlang， Therefore the cell site should have at least **18 channels** to cope with an offered traffic intensity of 12 Erlang.
 
 iii) Considering the offered traffic is uniformly distributed inside the cell, how many channels does the cell need if six 60 degree directional antennas are used?
 
+> each sector can receive traffic of $12/6 =2 Erlang$;
+>
+> The required channels in the sector is 6;
+>
+> Total channels need is $6*6 = 36$;
+
 iv) Compare the channel utilisation efficiency in sub-questions ii and iii.
+
+> The trunking efficiency is only: $\frac{18}{(6 * 6)} = 50%$;
 
 ![image-20220111154038967](https://tva1.sinaimg.cn/large/008i3skNgy1gy9rxxu551j319a0rgdms.jpg)
 
@@ -732,29 +768,105 @@ iv) Compare the channel utilisation efficiency in sub-questions ii and iii.
 
 >  **Supply the appropriate words to fill the blanks in the following sentences about the UMTS system (Note: write your answer in the answer book and NOT on this page)**：
 
-> UMTS system uses W-CDMA as its multiple access technique. \_\_\_\_\_\_\_\_\_(1) power control is a very important aspect in UMTS, in particular in the uplink, because of the near-far problem. \_\_\_\_\_\_\_\_\_ \_\_\_\_\_\_\_\_\_ (2) power control mechanisms make a rough estimate of path loss by means of a downlink beacon signal. In \_\_\_\_\_\_\_\_\_ \_\_\_\_\_\_\_\_\_(3) power control, the BS performs frequent estimates of the received Signal-toInterference Ratio (SIR) in the \_\_\_\_\_\_\_\_\_ (4) and compares it to a target SIR. If the measured SIR is higher than the target SIR, the BS will command the MS to lower the power; if it is too low it will command the MS to increase its power. \_\_\_\_\_\_\_\_\_ \_\_\_\_\_\_\_\_\_ (5) power control adjusts the target SIR in the BS according to the needs of the individual radio link.
+> ✅UMTS system uses W-CDMA as its multiple access technique.
+>
+>  \_\_\_\_**Fast**_\_\_\_\_(1) power control is a very important aspect in UMTS, in particular in the uplink, because of the near-far problem._
+>
+> _\_\_\_**Open**_\_\_\_\_\_ \_\_\_**Loop**\_\_\_\_\_\_ (2) power control mechanisms make a rough estimate of path loss by means of a downlink beacon signal. 
+>
+> In \_\_\_\_**Closed**\_\_\_\_\_ \_\_\_\_**Loop**\_\_\_\_\_(3) power control, the BS performs frequent estimates of the received Signal-toInterference Ratio (SIR) in the \_\_\_**uplink**\_\_\_\_\_\_ (4) and compares it to a target SIR. 
+>
+> If the measured SIR is higher than the target SIR, the BS will command the MS to lower the power; if it is too low it will command the MS to increase its power.
+>
+>  \_\_\_\_**Outer**\_\_\_\_\_ \_\_\_\_\_**Loop**\_\_\_\_ (5) power control adjusts the target SIR in the BS according to the needs of the individual radio link.
 >
 > ---
 >
-> UMTS uses \_\_\_\_W-CDMA_\_\_\_\_ (1) as its multiple access technique. Each frequency carrier in UMTS occupies a frequency band of 4.4 to \_\_\_\_\_\_\_\_\_ (2) MHz. \_\_\_\_\_\_\_\_\_(3) power control is a very important aspect in UMTS, in particular in the uplink, because of the \_\_\_\_\_\_\_\_\_(4) problem. \_\_\_\_\_\_\_\_\_ (5) power control mechanisms make a rough estimate of path loss by means of a downlink beacon signal. In \_\_\_\_\_\_\_\_\_ \_\_\_\_\_\_\_\_\_(6) power control, the BS performs frequent estimates of the received Signal-to-Interference Ratio (SIR) in the \_\_\_\_\_\_\_\_\_ (7) and compares it to a target SIR. If the measured SIR is higher than the target SIR, the BS will command the MS to \_\_\_\_\_\_\_\_\_ (8) the power; if it is too low it will command the MS to \_\_\_\_\_\_\_\_\_ (9) its power. \_\_\_\_\_\_\_\_\_ \_\_\_\_\_\_\_\_\_ (10) power control adjusts the target SIR in the BS according to the needs of the individual radio link.
+> ✅UMTS uses \_\_\_\_**W-CDMA**_\_\_\_\_ (1) as its multiple access technique. 
+>
+> Each frequency carrier in UMTS occupies a frequency band of 4.4 to \_\_\_\_**5**\_\_\_\_\_ (2) MHz.
+>
+>  \_\_\_\_**Fast**\_\_\_\_\_(3) power control is a very important aspect in UMTS, in particular in the uplink, because of the \_\_\_\_**near-far**\_\_\_\_\_(4) problem.
+>
+>  \_\_\_\_\_**Open loop**\_\_\_\_ (5) power control mechanisms make a rough estimate of path loss by means of a downlink beacon signal. 
+>
+> In \_\_\_\_**Closed**\_\_\_\_\_ \_\_\_\_**Loop**\_\_\_\_\_(6) power control, the BS performs frequent estimates of the received Signal-to-Interference Ratio (SIR) in the \_\_\_**uplink**\_\_\_\_\_\_(7) and compares it to a target SIR. 
+>
+> If the measured SIR is higher than the target SIR, the BS will command the MS to \_\_\_\_\_**lower**\_\_\_\_ (8) the power; if it is too low it will command the MS to \_\_\_\_\_**increase**\_\_\_\_ (9) its power.
+>
+>  \_\_\_\_**Outer**\_\_\_\_\_ \_\_\_\_\_**Loop**\_\_\_\_ (10) power control adjusts the target SIR in the BS according to the needs of the individual radio link.
 >
 > ---
 >
-> GSM uses \_\_\_\_\_\_\_\_\_(1) as a multiple access technique. The GSM spectrum provides \_\_\_\_\_\_\_\_\_(2) different frequency carriers, and a guard band is left between the first and the last carrier. Each frequency carrier in GSM occupies a frequency band of \_\_\_\_\_\_\_\_\_(3) accommodating \_\_\_\_\_\_\_\_\_(4) logical channels in it. Each logical channel is defined by the repetitive occurrence of  \_\_\_\_\_\_\_\_\_(5) each one with an approximate duration of 0.577ms. In a GSM full rate traffic channel, the payload data is encrypted in blocks of \_\_\_\_\_\_\_\_\_(6) bits. The capacity in kbps of a full rate traffic channel is \_\_\_\_\_\_\_\_\_(7), this value takes into consideration that in \_\_\_\_\_\_\_\_\_(8) frames occurring in a \_\_\_\_\_\_\_\_\_(9) ms multi-frame, \_\_\_\_\_\_\_\_\_(10) slots are used for other purposes which are: \_\_\_\_\_\_\_\_\_(11) and the \_\_\_\_\_\_\_\_\_(12) logical channel.
+> GSM uses \_\_\_\_**FDMA/TDMA**\_\_\_\_\_(1) as a multiple access technique. 
+>
+> The GSM spectrum provides \_\_\_\_\_**124**\_\_\_\_(2) different frequency carriers, and a guard band is left between the first and the last carrier. 
+>
+> Each frequency carrier in GSM occupies a frequency band of \_\_\_\_\_\_\_\_\_(3) accommodating \_\_\_\_\_\_\_\_\_(4) logical channels in it.
+>
+> Each logical channel is defined by the repetitive occurrence of  \_\_\_\_\_\_\_\_\_(5) each one with an approximate duration of 0.577ms.
+>
+> In a GSM full rate traffic channel, the payload data is encrypted in blocks of \_\_\_\_\_\_\_\_\_(6) bits. 
+>
+> The capacity in kbps of a full rate traffic channel is \_\_\_\_\_\_\_\_\_(7), this value takes into consideration that in \_\_\_\_\_\_\_\_\_(8) frames occurring in a \_\_\_\_\_\_\_\_\_(9) ms multi-frame, \_\_\_\_\_\_\_\_\_(10) slots are used for other purposes which are: \_\_\_\_\_\_\_\_\_(11) and the \_\_\_\_\_\_\_\_\_(12) logical channel.
 >
 > ---
 >
-> Security in GSM is implemented to prevent fraud via \_\_\_\_\_\_\_\_\_ (1) of the subscriber, not revealing the subscriber number over the air, and by \_\_\_\_\_\_\_\_\_ (2) the conversations to avoid eavesdropping. The SIM card has a microprocessor chip that can perform the computations required for security purposes. A \_\_\_\_\_\_\_\_\_ (3) key Ki is stored on the SIM card, and it is unique to the card. This key is used in two proprietary algorithms: A3 for \_\_\_\_\_\_\_\_\_ (4) and A8 for \_\_\_\_\_\_\_\_\_ (5). Ki is used in a \_\_\_\_\_\_\_\_\_ (6) response protocol using the A3 algorithm between the BSS/MSC and the MS. Ki is used to generate a privacy key \_\_\_\_\_\_\_\_\_ (7) that is used to \_\_\_\_\_\_\_\_\_ (8) messages (voice or data) using the A8 algorithm. Finally, the control channel signals are also \_\_\_\_\_\_\_\_\_ (9) to avoid eavesdropping by using a third algorithm called \_\_\_\_\_\_\_\_\_ (10).
+> Security in GSM is implemented to prevent fraud via \_\_\_\_\_\_\_\_\_ (1) of the subscriber, not revealing the subscriber number over the air, and by \_\_\_\_\_\_\_\_\_ (2) the conversations to avoid eavesdropping. 
+>
+> The SIM card has a microprocessor chip that can perform the computations required for security purposes. 
+>
+> A \_\_\_\_\_\_\_\_\_ (3) key Ki is stored on the SIM card, and it is unique to the card. 
+>
+> This key is used in two proprietary algorithms: A3 for \_\_\_\_\_\_\_\_\_ (4) and A8 for \_\_\_\_\_\_\_\_\_ (5). 
+>
+> Ki is used in a \_\_\_\_\_\_\_\_\_ (6) response protocol using the A3 algorithm between the BSS/MSC and the MS. 
+>
+> Ki is used to generate a privacy key \_\_\_\_\_\_\_\_\_ (7) that is used to \_\_\_\_\_\_\_\_\_ (8) messages (voice or data) using the A8 algorithm. 
+>
+> Finally, the control channel signals are also \_\_\_\_\_\_\_\_\_ (9) to avoid eavesdropping by using a third algorithm called \_\_\_\_\_\_\_\_\_ (10).
 >
 > ---
 >
-> The technologies applied with HSUPA improve the \_\_\_\_\_\_\_\_\_ (1) packet data performance by means of fast physical layer (L1) \_\_\_\_\_\_\_\_\_(2) and transmission \_\_\_\_\_\_\_\_\_ (3), as well as fast Node B \_\_\_\_\_\_\_\_\_(4). HSUPA general functionality: The \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ (5) estimates the data rate transmission needs of each active HSUPA user based on the device-specific \_\_\_\_\_\_\_\_\_(6); The scheduler in the \_\_\_\_\_\_\_\_\_(7) then provides instruction to devices on the \_\_\_\_\_\_\_\_\_ (8) link data rate to be used at a fast pace depending on the \_\_\_\_\_\_\_\_\_ (9) received before, the scheduling algorithm and the \_\_\_\_\_\_\_\_\_ (10) prioritisation scheme.
+> ✅The technologies applied with HSUPA improve the \_\_\_\_\_**uplink**\_\_\_\_ (1) packet data performance by means of fast physical layer (L1) \_\_\_\_**retransmission**\_\_\_\_\_(2) and transmission \_\_\_**combining**\_\_\_\_\_\_ (3), as well as fast Node B \_\_\_\_**scheduling**\_\_\_\_\_(4). 
+>
+> HSUPA general functionality: 
+>
+> - The \_\_\_\_\_\_\_\_**Node B**\_\_\_\_\_\_\_\_\_ (5) estimates the data rate transmission needs of each active HSUPA user based on the device-specific \_\_\_\_**feedback**\_\_\_\_\_(6); 
+> - The scheduler in the \_\_\_\_**feedback**\_\_\_\_\_(7) then provides instruction to devices on the \_\_\_\_**uplink**\_\_\_\_\_ (8) link data rate to be used at a fast pace depending on the \_\_\_\_**feedback**\_\_\_\_\_ (9) received before, the scheduling algorithm and the \_\_\_\_**user**\_\_\_\_\_ (10) prioritisation scheme.
 >
 > ---
 >
-> In traffic engineering, assume a cell receives on average 630 calls per hour, the mean holding time is 120 seconds, and the grade of service is 2%. Therefore, the offered traffic in the cell is \_\_\_\_\_\_\_\_\_ (1) and the dimensionless unit is \_\_\_\_\_\_\_\_\_(2). If the number of channels needed for this offered traffic is 28 channels, the corresponding trunking efficiency is \_\_\_\_\_\_\_\_\_ (3).
+> In traffic engineering, assume a cell receives on average 630 calls per hour, the mean holding time is 120 seconds, and the grade of service is 2%. 
+>
+> > Assume that the average number of calls per hour in the busy-hour is 880, the average call holding time is 180 seconds and the GOS of 0.02
+> >
+> > The offered traffic intensity is T = 880x180/3600 = 44 Erlang
+> >
+> > – Looking at Erlang B table (next slide) for a GOS of 2%, it is found that 54 channels are needed for an offered traffic of 44 Erlang
+> >
+> > – Therefore the cell site should have at least 54 channels to cope with an offered traffic intensity of 44 Erlang
+> >
+> > When a cell is divided in sectors there is a degradation of channel utilisation efficiency  In the example on page 8, a cell with 52 channels can receive
+> >
+> > traffic of 44 Erlang (GOS 2%), its trunking efficiency is:
+> >
+> > 44/52 = 84.6%
+> >
+> >  If the cell is now divided in three sectors to maintain the same traffic intensity 44 Erlang in GOS 2%, the required channels will be 3x22 = 66.
+> >
+> > > T = 630 * 120 / 3600 = 21 Erlang(0.02)
+>
+> Therefore, the offered traffic in the cell is \_\_\_\_**29**\_\_\_\_\_ (1) and the dimensionless unit is \_\_\_\_\_\_\_\_\_(2). 
+>
+> If the number of channels needed for this offered traffic is 28 channels, the corresponding trunking efficiency is \_\_\_\_\_\_\_\_\_ (3).
 >
 > ---
 >
-> In a FDMA/TDMA system, there are two types of frequency interference. The first type is the cochannel interference and the second type is the \_\_\_\_\_\_\_\_\_ (1) channel interference. Depending of the value of the cochannel reuse ratio the network will have different number of cells per cluster. For example, if the cochannel reuse ratio is 6, the number of cells per cluster will be \_\_\_\_\_\_\_\_\_ (2). In order to avoid the second type of frequency interference, the assigned frequencies for the channels of a cell have maximum possible \_\_\_\_\_\_\_\_\_ (3) and sectorization can also help.
+> In a FDMA/TDMA system, there are two types of frequency interference. 
+>
+> - The first type is the cochannel interference and the second type is the \_\_\_\_**Adjacent**_\_\_\_\_ (1) channel interference. 
+> - Depending of the value of the cochannel reuse ratio the network will have different number of cells per cluster. 
+> - For example, if the cochannel reuse ratio is 6, the number of cells per cluster will be \_\_\_\_**12**\_\_\_\_\_ (2). 
+> - In order to avoid the second type of frequency interference, the assigned frequencies for the channels of a cell have maximum possible \_\_\_\_\_\_\_\_\_ (3) and sectorization can also help.
 
