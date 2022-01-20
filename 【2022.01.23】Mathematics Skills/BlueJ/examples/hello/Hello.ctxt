@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Hello
+comment0.text=\n\ Class\ Hello\:\n\n\ Hello-world\ program\ to\ demonstrate\ BlueJ.\n
+comment1.params=
+comment1.target=void\ go()
+comment1.text=\n\ Method\ that\ does\ the\ work\ \n
+comment2.params=args
+comment2.target=void\ main(java.lang.String[])
+comment2.text=\n\ \ main\ method\ for\ testing\ outside\ BlueJ\ \n
+numComments=3
